@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Reset Request</title>
+  <!-- Include Tailwind CSS -->
+  <link th:href="@{https://cdn.tailwindcss.com/3.3.2}" rel="stylesheet">
+  <!-- Include Alpine.js -->
+  <script th:src="@{https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js}"></script>
+</head>
+<body>
+<div class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10">
+  <div class="max-h-full w-full max-w-xl overflow-y-auto sm:rounded-2xl bg-white">
+    <div class="w-full">
+      <div class="m-8 my-20 max-w-[400px] mx-auto">
+        <div class="mb-8">
+          <h1 class="mb-4 text-3xl font-extrabold">Password Reset Request</h1>
+          <p class="text-gray-600">Dear <span th:text="${username}"></span>,</p>
+          <p class="text-gray-600">We received a request to reset your password. If you did not make this request, please ignore this email.</p>
+          <p class="text-gray-600">To reset your password, please enter the new password and click the button below:</p>
+        </div>
+        <div class="activation-code"><span th:text="${activation_code}"></span></div>
+        <div class="space-y-4">
+          <a th:href="${confirmationUrl}"
+             target="_blank"
+             style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">
+            Confirm Account
+          </a>
+        </div>
+        <p class="text-gray-600">Please note that this link will expire after 1 hour for security purposes.</p>
+        <p class="text-gray-600">Thank you,<br>DanceScape Explorer Team</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
